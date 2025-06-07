@@ -10,12 +10,10 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            /* Latar belakang utama diubah ke hitam/gelap */
             background-color: #111827; 
-            color: #d1d5db; /* Warna teks utama diubah ke abu-abu terang */
+            color: #d1d5db; 
             scroll-behavior: smooth;
             overflow-x: hidden;
-            /* Pola latar belakang diubah menjadi lebih gelap */
             background: 
                 linear-gradient(to bottom, rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.98)),
                 linear-gradient(45deg, rgba(209, 213, 219, 0.02) 25%, transparent 25%),
@@ -38,7 +36,7 @@
         }
         .countdown-label {
             font-size: 0.75rem;
-            color: #9ca3af; /* Warna label countdown disesuaikan */
+            color: #9ca3af;
             text-transform: uppercase;
         }
         .btn-primary {
@@ -133,7 +131,7 @@
     </section>
 
     <div id="music-player">
-        <audio id="background-music" src="https://web.undangandigital.id/wp-content/uploads/2023/11/Gonna-Be-Good-Instrumental-Version-by-Gold-City.mp3" loop></audio>
+        <audio id="background-music" src="https://ia800302.us.archive.org/2/items/ari-lasso-cinta-terakhir/Ari%20Lasso%20-%20Cinta%20Terakhir.mp3" loop></audio>
         <button id="play-pause-btn">
             <i id="play-pause-icon" class="fas fa-play"></i>
         </button>
@@ -233,32 +231,7 @@
             </div>
         </section>
 
-        <section class="section-spacing bg-gray-900 text-center">
-            <div class="container mx-auto max-w-5xl">
-                 <img src="https://web.undangandigital.id/wp-content/uploads/2023/08/gunungan_title_gold_081020221317.png" alt="Our Story" class="mx-auto mb-12 max-w-xs fade-in" />
-                <div class="grid md:grid-cols-3 gap-8 text-left">
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md fade-in">
-                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Cerita+1" alt="Awal Pertemuan" class="w-full h-48 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-xl font-semibold mb-2 gold-text">Awal Pertemuan</h3>
-                        <p class="text-gray-400">[Tuliskan cerita singkat awal pertemuan di sini...]</p>
-                    </div>
-
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md fade-in" style="transition-delay: 200ms;">
-                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Cerita+2" alt="Menjalin Hubungan" class="w-full h-48 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-xl font-semibold mb-2 gold-text">Menjalin Hubungan</h3>
-                        <p class="text-gray-400">[Tuliskan cerita singkat tentang hubungan Anda di sini...]</p>
-                    </div>
-
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md fade-in" style="transition-delay: 400ms;">
-                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Cerita+3" alt="Lamaran" class="w-full h-48 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-xl font-semibold mb-2 gold-text">Lamaran</h3>
-                        <p class="text-gray-400">[Tuliskan cerita singkat tentang lamaran di sini...]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section-spacing text-center bg-gray-800">
+        <section class="section-spacing text-center bg-gray-900">
             <div class="container mx-auto max-w-4xl fade-in">
                 <i class="fas fa-gift text-5xl gold-text mb-6"></i>
                 <h2 class="text-4xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">Wedding Gift</h2>
@@ -267,28 +240,28 @@
                 </p>
                 
                 <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
-                    <div class="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Bank_Mandiri_logo.svg/1280px-Old_Bank_Mandiri_logo.svg.png" alt="Bank Mandiri" class="h-10 mx-auto mb-4"/>
-                        <p class="font-semibold text-lg text-gray-200">[Nomor Rekening 1]</p>
-                        <p class="mb-4 text-gray-300">a.n. [Nama Pemilik Rekening 1]</p>
-                        <button onclick="copyToClipboard('[Nomor Rekening 1]')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SeaBank_logo.svg/1200px-SeaBank_logo.svg.png" alt="SEABANK" class="h-8 mx-auto mb-4"/>
+                        <p class="font-semibold text-lg text-gray-200">901548886566</p>
+                        <p class="mb-4 text-gray-300">a.n. IRWAN MAULANA</p>
+                        <button onclick="copyToClipboard('901548886566')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
                     </div>
                     
-                    <div class="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
-                        <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1280px-BNI_logo.svg.png" alt="Bank BNI" class="h-10 mx-auto mb-4"/>
-                        <p class="font-semibold text-lg text-gray-200">[Nomor Rekening 2]</p>
-                        <p class="mb-4 text-gray-300">a.n. [Nama Pemilik Rekening 2]</p>
-                        <button onclick="copyToClipboard('[Nomor Rekening 2]')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/1280px-BRI_2020.svg.png" alt="BANK BRI" class="h-8 mx-auto mb-4"/>
+                        <p class="font-semibold text-lg text-gray-200">437601082911539</p>
+                        <p class="mb-4 text-gray-300">a.n. AI RESA AULIA</p>
+                        <button onclick="copyToClipboard('437601082911539')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-spacing bg-gray-900">
+        <section class="section-spacing bg-gray-800">
             <div class="container mx-auto max-w-3xl text-center fade-in">
                  <img src="https://web.undangandigital.id/wp-content/uploads/2023/08/gunungan_title_gold_081020221317.png" alt="Ucapan" class="mx-auto mb-12 max-w-xs" />
                 
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg mb-12">
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg mb-12">
                      <h2 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Playfair Display', serif;">Buku Tamu</h2>
                     <form id="wishesForm" class="space-y-4">
                         <input type="text" id="name" name="name" placeholder="Nama Anda" class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400" required />
@@ -297,7 +270,7 @@
                     </form>
                 </div>
 
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg">
                      <h2 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Playfair Display', serif;">Konfirmasi Kehadiran</h2>
                     <form id="rsvp" class="space-y-4 text-left">
                         <div>
@@ -321,7 +294,7 @@
             </div>
         </section>
         
-        <footer class="text-center py-16 px-6 bg-gray-800">
+        <footer class="text-center py-16 px-6 bg-gray-900">
             <div class="fade-in">
                 <p class="mb-4 text-gray-400 max-w-3xl mx-auto">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
                 <p class="mb-8 text-gray-400">Atas kehadiran dan doa restu, kami mengucapkan terima kasih.</p>

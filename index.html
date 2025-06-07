@@ -13,12 +13,9 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            color: #374151;
+            background-color: #f4f4f5; 
+            color: #374151; 
             overflow-x: hidden;
-            background-image: linear-gradient(rgba(244, 244, 245, 0.2), rgba(244, 244, 245, 0.2)), url('latar_belakang.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
         h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
@@ -38,18 +35,15 @@
             transform: translateY(-3px);
         }
         .cover-section {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    display: flex; 
-    flex-direction: column; 
-    /* UBAH INI untuk memisahkan konten atas dan bawah */
-    justify-content: space-between; 
-    align-items: center;
-    /* TAMBAHKAN INI untuk memberi jarak dari tepi layar */
-    padding: 4rem 1.5rem;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto_cover.jpg') no-repeat center center/cover;
-    z-index: 100;
-    transition: opacity 1.5s ease, transform 1s ease;
-}
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            display: flex; flex-direction: column; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto_cover.jpg') no-repeat center center/cover;
+            z-index: 100;
+            transition: opacity 1.5s ease, transform 1s ease;
+        }
         .cover-section.hidden {
             opacity: 0;
             transform: translateY(-100%);
@@ -73,11 +67,11 @@
         }
         .section-container { 
             padding: 4rem 1.5rem; 
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: #ffffff;
             margin-top: 2rem;
             margin-bottom: 2rem;
             border-radius: 0.75rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
         }
         #music-player {
             position: fixed;
@@ -104,22 +98,19 @@
 <body class="text-gray-700">
 
     <section id="cover" class="cover-section">
-    
-    <div class="text-center">
-        <h1 class="text-xl tracking-widest mb-4 text-white">THE WEDDING OF</h1>
-        <h2 class="font-bold text-6xl md:text-8xl text-white" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h2>
-    </div>
-
-    <div class="text-center">
-        <p class="text-lg mb-2 text-white">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-        <p id="guest-name" class="text-2xl font-semibold mb-8 border-b-2 border-gold-300 inline-block px-4 pb-2 text-white">Tamu Undangan</p>
-        <p class="text-sm italic text-gray-300 mb-8 max-w-sm mx-auto">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
-        <button id="open-invitation" class="btn-primary text-lg">
-            <i class="fas fa-envelope-open mr-2"></i> Buka Undangan
-        </button>
-    </div>
-
-</section>
+        <div class="text-center">
+            <h1 class="text-xl tracking-widest mb-4 text-white">THE WEDDING OF</h1>
+            <h2 class="font-bold text-6xl md:text-8xl text-white" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h2>
+        </div>
+        <div class="text-center">
+            <p class="text-lg mb-2 text-white">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <p id="guest-name" class="text-2xl font-semibold mb-8 border-b-2 border-gold-300 inline-block px-4 pb-2 text-white">Tamu Undangan</p>
+            <p class="text-sm italic text-gray-300 mb-8 max-w-sm mx-auto">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
+            <button id="open-invitation" class="btn-primary text-lg">
+                <i class="fas fa-envelope-open mr-2"></i> Buka Undangan
+            </button>
+        </div>
+    </section>
 
     <div id="music-player">
         <audio id="background-music" src="lagu_pernikahan.mp3" loop></audio>
@@ -132,8 +123,8 @@
 
         <img src="foto_pembuka.jpg" alt="Irwan & Ai Resa" class="w-full h-auto object-cover shadow-lg rounded-lg">
 
-        <section class="text-center py-12 my-8 bg-gray-900/10 rounded-lg">
-            <div class="fade-in">
+        <section class="text-center py-16">
+            <div class="pt-12 fade-in">
                 <p class="text-2xl mb-4 gold-text" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
                 <h1 class="text-6xl md:text-8xl font-bold mb-4 text-gray-900" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
                 <p class="text-2xl mt-4 text-gray-600">Sabtu, 14 Juni 2025</p>
@@ -142,7 +133,7 @@
 
         <section class="section-container text-center fade-in">
             <div class="container mx-auto max-w-4xl">
-                <img src="gunungan.png" alt="Bismillah" class="mx-auto mb-8 w-48"/>
+                <img src="bismillah.png" alt="Bismillah" class="mx-auto mb-8 w-48"/>
                 <p class="mb-8 text-gray-600 leading-relaxed max-w-3xl mx-auto italic text-lg">
                     "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
                 </p>
@@ -150,47 +141,45 @@
             </div>
         </section>
 
-        <section class="section-container">
-    <div class="container mx-auto max-w-5xl text-center">
-        <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs fade-in" />
-       
-       <div class="flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16">
-           
-           <div class="text-center w-full md:w-5/12 fade-in">
-               <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
-               <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Irwan Maulana</h3>
-               <p class="mt-4 text-gray-400">Putra pertama dari Pasangan</p>
-               <p class="font-semibold text-lg text-gray-200">Bapak Efendi & Ibu Yati</p>
-               <a href="https://instagram.com" target="_blank" class="inline-block mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full px-4 py-2 text-sm">
-                   <i class="fab fa-instagram mr-2"></i>Instagram
-               </a>
-           </div>
-           
-           <div class="text-5xl font-serif gold-text fade-in delay-100 pt-16">&</div>
-           
-           <div class="text-center w-full md:w-5/12 fade-in delay-200">
-               <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
-               <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Ai Resa Aulia</h3>
-               <p class="mt-4 text-gray-400">Putri pertama dari Pasangan</p>
-               <p class="font-semibold text-lg text-gray-200">Bapak Sahli & Ibu Kaesih</p>
-                <a href="https://instagram.com" target="_blank" class="inline-block mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full px-4 py-2 text-sm">
-                   <i class="fab fa-instagram mr-2"></i>Instagram
-               </a>
-           </div>
-
-       </div>
-   </div>
-</section>
+        <section class="section-container fade-in">
+            <div class="container mx-auto max-w-5xl text-center">
+                 <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs" />
+                 
+                <div class="flex flex-row justify-center items-start gap-2 sm:gap-4 md:gap-8">
+                    <div class="text-center w-2/5">
+                        <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
+                        <h3 class="text-xl md:text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Irwan Maulana</h3>
+                        <p class="mt-4 text-xs md:text-sm text-gray-500">Putra pertama dari Pasangan</p>
+                        <p class="font-semibold text-sm md:text-lg text-gray-800">Bapak Efendi & Ibu Yati</p>
+                        <a href="https://instagram.com" target="_blank" class="inline-block mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full px-4 py-2 text-xs md:text-sm">
+                            <i class="fab fa-instagram mr-1 md:mr-2"></i>Instagram
+                        </a>
+                    </div>
+                    
+                    <div class="text-3xl md:text-5xl font-serif gold-text pt-16">&</div>
+                    
+                    <div class="text-center w-2/5">
+                        <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
+                        <h3 class="text-xl md:text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Ai Resa Aulia</h3>
+                        <p class="mt-4 text-xs md:text-sm text-gray-500">Putri pertama dari Pasangan</p>
+                        <p class="font-semibold text-sm md:text-lg text-gray-800">Bapak Sahli & Ibu Kaesih</p>
+                         <a href="https://instagram.com" target="_blank" class="inline-block mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full px-4 py-2 text-xs md:text-sm">
+                            <i class="fab fa-instagram mr-1 md:mr-2"></i>Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="section-container text-center fade-in">
             <div class="container mx-auto max-w-4xl">
                 <h2 class="text-5xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">Save The Date</h2>
                 <p class="text-xl text-gray-600 mb-10">Sabtu, 14 Juni 2025</p>
-                <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-center mb-12">
-                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-24"><div id="days" class="countdown-number">0</div><div class="countdown-label">Hari</div></div>
-                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-24"><div id="hours" class="countdown-number">0</div><div class="countdown-label">Jam</div></div>
-                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-24"><div id="minutes" class="countdown-number">0</div><div class="countdown-label">Menit</div></div>
-                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-24"><div id="seconds" class="countdown-number">0</div><div class="countdown-label">Detik</div></div>
+                <div id="countdown" class="flex justify-center space-x-2 sm:space-x-4 md:space-x-8 text-center mb-12">
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-20 md:w-24"><div id="days" class="countdown-number">0</div><div class="countdown-label">Hari</div></div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-20 md:w-24"><div id="hours" class="countdown-number">0</div><div class="countdown-label">Jam</div></div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-20 md:w-24"><div id="minutes" class="countdown-number">0</div><div class="countdown-label">Menit</div></div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-20 md:w-24"><div id="seconds" class="countdown-number">0</div><div class="countdown-label">Detik</div></div>
                 </div>
                  <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Irwan+%26+Ai+Resa&dates=20250614T020000Z/20250614T080000Z&details=Acara+pernikahan+Irwan+dan+Ai+Resa&location=Karangnunggal,+Tasikmalaya+(Sesuai+Denah)" target="_blank" class="btn-primary">
                     <i class="fas fa-calendar-alt mr-2"></i> Simpan ke Kalender
@@ -254,7 +243,7 @@
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner border w-full md:w-1/2">
-                        <img src="logo_seabank.png" alt="SEABANK" class="mx-auto mb-4" style="height: 75px;">
+                        <img src="logo_seabank.png" alt="SEABANK" class="h-12 mx-auto mb-4">
                         <p class="font-semibold text-lg text-gray-800">901548886566</p>
                         <p class="mb-4 text-gray-600">a.n. IRWAN MAULANA</p>
                         <button onclick="copyToClipboard('901548886566')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin Rekening</button>
@@ -294,14 +283,14 @@
         
         <footer class="text-center py-16 px-6 fade-in">
             <div>
-                <p class="mb-4 text-white-500 max-w-3xl mx-auto">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-                <p class="mb-8 text-white-500">Atas kehadiran dan doa restu, kami mengucapkan terima kasih.</p>
-                <p class="text-xl font-semibold black-text mb-2" style="font-family: 'Playfair Display', serif;">Wassalamualaikum Wr. Wb.</p>
+                <p class="mb-4 text-gray-500 max-w-3xl mx-auto">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+                <p class="mb-8 text-gray-500">Atas kehadiran dan doa restu, kami mengucapkan terima kasih.</p>
+                <p class="text-xl font-semibold gold-text mb-2" style="font-family: 'Playfair Display', serif;">Wassalamualaikum Wr. Wb.</p>
                 <p class="mt-8 font-semibold text-2xl text-gray-800">Kami yang berbahagia,</p>
-                <p class="text-5xl font-bold my-4 black-text" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</p>
+                <p class="text-5xl font-bold my-4 gold-text" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</p>
                 <div class="mt-12 text-xs text-gray-500">
                     <p>Made with <i class="fas fa-heart text-red-500"></i> by</p>
-                     <a href="https://facebook.com/MAXDHHH" target="_blank">
+                     <a href="https://shopee.co.id/kanahayadigital" target="_blank">
                         <img src="logo_pembuat.png" alt="Kanahaya Digital" class="mx-auto mt-2 h-16">
                     </a>
                 </div>

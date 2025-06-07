@@ -8,10 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        /* SCROLL SNAP DIHAPUS UNTUK EFEK SCROLL YANG HALUS */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             color: #d1d5db; 
-            scroll-behavior: smooth;
             overflow-x: hidden;
             background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('latar_belakang.jpg');
             background-size: cover;
@@ -22,18 +25,7 @@
             font-family: 'Playfair Display', serif;
         }
         .gold-text { color: #bfa14a; }
-        .countdown-number {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: #bfa14a;
-            line-height: 1;
-        }
-        .countdown-label {
-            font-size: 0.75rem;
-            color: #9ca3af;
-            text-transform: uppercase;
-        }
+        
         .btn-primary {
             background-color: #bfa14a;
             color: white;
@@ -67,15 +59,24 @@
         main.visible {
             opacity: 1;
         }
+
+        /* PENYESUAIAN ANIMASI AGAR LEBIH JELAS */
         .fade-in {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        /* KELAS UNTUK DELAY ANIMASI (STAGGERED) */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+
         .section-container { 
             padding: 4rem 1.5rem; 
             background-color: rgba(17, 24, 39, 0.65); 
@@ -84,6 +85,7 @@
             border-radius: 0.75rem;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
+        
         #music-player {
             position: fixed;
             bottom: 20px;
@@ -108,8 +110,8 @@
 </head>
 <body class="text-gray-300">
 
-    <section id="cover" class="cover-section text-center text-white p-6">
-        <div class="relative z-10">
+    <section id="cover" class="cover-section">
+        <div class="relative z-10 text-center p-6">
             <h1 class="text-xl tracking-widest mb-4">THE WEDDING OF</h1>
             <h2 class="font-bold text-6xl md:text-8xl mb-8" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h2>
             <p class="text-lg mb-2">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
@@ -133,29 +135,28 @@
         <img src="foto_pembuka.jpg" alt="Irwan & Ai Resa" class="w-full h-auto object-cover shadow-lg rounded-lg">
 
         <section class="text-center py-16">
-            <div class="pt-12 fade-in">
-                <p class="text-2xl mb-4 gold-text" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
-                <h1 class="text-6xl md:text-8xl font-bold mb-4 text-white" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
-                <p class="text-2xl mt-4 text-gray-300">Sabtu, 14 Juni 2025</p>
+            <div class="pt-12">
+                <p class="text-2xl mb-4 gold-text fade-in" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
+                <h1 class="text-6xl md:text-8xl font-bold mb-4 text-white fade-in delay-100" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
+                <p class="text-2xl mt-4 text-gray-300 fade-in delay-200">Sabtu, 14 Juni 2025</p>
             </div>
         </section>
 
-        <section class="section-container text-center fade-in">
+        <section class="section-container text-center">
             <div class="container mx-auto max-w-4xl">
-                <img src="bismillah.png" alt="Bismillah" class="mx-auto mb-8 w-48"/>
-                <p class="mb-8 text-gray-300 leading-relaxed max-w-3xl mx-auto italic text-lg">
+                <img src="bismillah.png" alt="Bismillah" class="mx-auto mb-8 w-48 fade-in"/>
+                <p class="mb-8 text-gray-300 leading-relaxed max-w-3xl mx-auto italic text-lg fade-in delay-100">
                     "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
                 </p>
-                <p class="font-semibold text-xl gold-text" style="font-family: 'Playfair Display', serif;">(Q.S Ar-Rum: 21)</p>
+                <p class="font-semibold text-xl gold-text fade-in delay-200" style="font-family: 'Playfair Display', serif;">(Q.S Ar-Rum: 21)</p>
             </div>
         </section>
 
-        <section class="section-container fade-in">
+        <section class="section-container">
             <div class="container mx-auto max-w-5xl text-center">
-                 <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs" />
-                 
+                 <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs fade-in" />
                 <div class="flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16">
-                    <div class="text-center w-full md:w-5/12">
+                    <div class="text-center w-full md:w-5/12 fade-in">
                         <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
                         <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Irwan Maulana</h3>
                         <p class="mt-4 text-gray-400">Putra pertama dari Pasangan</p>
@@ -164,8 +165,8 @@
                             <i class="fab fa-instagram mr-2"></i>Instagram
                         </a>
                     </div>
-                    <div class="text-5xl font-serif gold-text pt-16">&</div>
-                    <div class="text-center w-full md:w-5/12">
+                    <div class="text-5xl font-serif gold-text fade-in delay-100 pt-16">&</div>
+                    <div class="text-center w-full md:w-5/12 fade-in delay-200">
                         <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
                         <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Ai Resa Aulia</h3>
                         <p class="mt-4 text-gray-400">Putri pertama dari Pasangan</p>
@@ -178,17 +179,17 @@
             </div>
         </section>
 
-        <section class="section-container text-center fade-in">
+        <section class="section-container text-center">
             <div class="container mx-auto max-w-4xl">
-                <h2 class="text-5xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">Save The Date</h2>
-                <p class="text-xl text-gray-300 mb-10">Sabtu, 14 Juni 2025</p>
-                <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4 gold-text fade-in" style="font-family: 'Playfair Display', serif;">Save The Date</h2>
+                <p class="text-xl text-gray-300 mb-10 fade-in delay-100">Sabtu, 14 Juni 2025</p>
+                <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-center mb-12 fade-in delay-200">
                     <div class="bg-gray-800/50 p-4 rounded-lg shadow-lg w-24"><div id="days" class="countdown-number">0</div><div class="countdown-label">Hari</div></div>
                     <div class="bg-gray-800/50 p-4 rounded-lg shadow-lg w-24"><div id="hours" class="countdown-number">0</div><div class="countdown-label">Jam</div></div>
                     <div class="bg-gray-800/50 p-4 rounded-lg shadow-lg w-24"><div id="minutes" class="countdown-number">0</div><div class="countdown-label">Menit</div></div>
                     <div class="bg-gray-800/50 p-4 rounded-lg shadow-lg w-24"><div id="seconds" class="countdown-number">0</div><div class="countdown-label">Detik</div></div>
                 </div>
-                 <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Irwan+%26+Ai+Resa&dates=20250614T020000Z/20250614T080000Z&details=Acara+pernikahan+Irwan+dan+Ai+Resa&location=Karangnunggal,+Tasikmalaya+(Sesuai+Denah)" target="_blank" class="btn-primary">
+                 <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Irwan+%26+Ai+Resa&dates=20250614T020000Z/20250614T080000Z&details=Acara+pernikahan+Irwan+dan+Ai+Resa&location=Karangnunggal,+Tasikmalaya+(Sesuai+Denah)" target="_blank" class="btn-primary fade-in delay-300">
                     <i class="fas fa-calendar-alt mr-2"></i> Simpan ke Kalender
                 </a>
             </div>
@@ -208,7 +209,7 @@
                             <a href="#denah-lokasi" class="btn-primary"><i class="fas fa-map-marker-alt mr-2"></i> Lihat Denah</a>
                         </div>
                     </div>
-                    <div class="relative text-center p-8 rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-400 fade-in" style="transition-delay: 200ms; background-image: url('bg_acara.jpg'); background-size: cover; background-position: center;">
+                    <div class="relative text-center p-8 rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-400 fade-in delay-200" style="background-image: url('bg_acara.jpg'); background-size: cover; background-position: center;">
                         <div class="absolute inset-0 bg-gray-900/70"></div>
                         <div class="relative">
                             <h2 class="text-4xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">Resepsi</h2>
@@ -227,52 +228,52 @@
             <div class="container mx-auto max-w-4xl">
                  <h2 class="text-5xl font-bold mb-10 gold-text">Denah Lokasi</h2>
                  <img src="denah.png" alt="Denah Lokasi Pernikahan" class="mx-auto rounded-lg shadow-lg border-4 border-gray-700">
-                 <p class="mt-6 text-gray-400">Untuk mempermudah, silakan scan QR Code di atas.</p>
+                 <p class="mt-6 text-gray-400">Untuk mempermudah, silakan scan QR Code di atas menggunakan Google Maps.</p>
             </div>
         </section>
 
-        <section class="section-container text-center fade-in">
+        <section class="section-container text-center">
             <div class="container mx-auto max-w-6xl">
-                <img src="gunungan.png" alt="Gallery" class="mx-auto mb-12 max-w-xs" />
-                <h2 class="text-5xl font-bold mb-10 gold-text" style="font-family: 'Playfair Display', serif;">Momen Bahagia</h2>
+                <img src="gunungan.png" alt="Gallery" class="mx-auto mb-12 max-w-xs fade-in" />
+                <h2 class="text-5xl font-bold mb-10 gold-text fade-in delay-100" style="font-family: 'Playfair Display', serif;">Momen Bahagia</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div><img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
-                    <div><img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
-                    <div><img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
-                    <div><img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
-                    <div><img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
+                    <div class="fade-in delay-200"><img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
+                    <div class="fade-in delay-300"><img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
+                    <div class="fade-in delay-400"><img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
+                    <div class="fade-in delay-500"><img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
+                    <div class="fade-in delay-500"><img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/></div>
                 </div>
             </div>
         </section>
 
-        <section class="section-container text-center fade-in">
-            <div class="container mx-auto max-w-4xl">
+        <section class="section-container text-center">
+            <div class="container mx-auto max-w-4xl fade-in">
                 <i class="fas fa-gift text-5xl gold-text mb-6"></i>
                 <h2 class="text-4xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">Wedding Gift</h2>
                 <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
-                    Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih, Anda dapat mengirimkannya melalui:
+                    Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih, Anda dapat mengirimkannya secara cashless melalui:
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
-                        <img src="logo_seabank.png" alt="SEABANK" class="h-8 mx-auto mb-4">
+                        <img src="SeaBank.png" alt="SEABANK" class="h-8 mx-auto mb-4 invert">
                         <p class="font-semibold text-lg text-gray-200">901548886566</p>
                         <p class="mb-4 text-gray-300">a.n. IRWAN MAULANA</p>
-                        <button onclick="copyToClipboard('901548886566')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin Rekening</button>
+                        <button onclick="copyToClipboard('901548886566')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
                     </div>
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/1280px-BRI_2020.svg.png" alt="BANK BRI" class="h-8 mx-auto mb-4"/>
                         <p class="font-semibold text-lg text-gray-200">437601082911539</p>
                         <p class="mb-4 text-gray-300">a.n. AI RESA AULIA</p>
-                        <button onclick="copyToClipboard('437601082911539')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin Rekening</button>
+                        <button onclick="copyToClipboard('437601082911539')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-container fade-in">
+        <section class="section-container">
             <div class="container mx-auto max-w-3xl text-center">
-                 <img src="gunungan.png" alt="Ucapan" class="mx-auto mb-12 max-w-xs" />
-                <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg mb-12">
+                 <img src="gunungan.png" alt="Ucapan" class="mx-auto mb-12 max-w-xs fade-in" />
+                <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg mb-12 fade-in delay-100">
                      <h2 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Playfair Display', serif;">Buku Tamu</h2>
                     <form id="wishesForm" class="space-y-4">
                         <input type="text" id="name" name="name" placeholder="Nama Anda" class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400" required />
@@ -280,7 +281,7 @@
                         <button type="submit" class="btn-primary w-full"><i class="fas fa-paper-plane mr-2"></i>Kirim Ucapan</button>
                     </form>
                 </div>
-                <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg">
+                <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg fade-in delay-200">
                      <h2 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Playfair Display', serif;">Konfirmasi Kehadiran</h2>
                     <form id="rsvp" class="space-y-4 text-left">
                         <div><label for="rsvpName" class="block mb-2 font-semibold text-gray-200">Nama</label><input type="text" id="rsvpName" name="rsvpName" class="w-full p-3 border rounded bg-gray-700 text-white border-gray-600" required /></div>
@@ -368,11 +369,18 @@
 
             window.copyToClipboard = function(text) {
                 navigator.clipboard.writeText(text).then(() => { alert('Nomor rekening berhasil disalin!'); });
-            }
+            };
 
             document.getElementById('wishesForm').addEventListener('submit', (e) => {
                 e.preventDefault();
                 alert('Terima kasih atas ucapan dan doanya!');
+                e.target.reset();
+            });
+
+            document.getElementById('rsvp').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const rsvpName = e.target.rsvpName.value;
+                alert(`Terima kasih, ${rsvpName}, atas konfirmasi kehadirannya!`);
                 e.target.reset();
             });
 

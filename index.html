@@ -10,18 +10,14 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #111827; 
-            color: #d1d5db; 
+            color: #d1d5db;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background: 
-                linear-gradient(to bottom, rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.98)),
-                linear-gradient(45deg, rgba(209, 213, 219, 0.02) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(209, 213, 219, 0.02) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(209, 213, 219, 0.02) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(209, 213, 219, 0.02) 75%);
-            background-size: 100% 100%, 40px 40px, 40px 40px, 40px 40px, 40px 40px;
-            background-attachment: fixed;
+            /* LATAR BELAKANG UTAMA */
+            background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('latar_belakang.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Membuat background diam saat di-scroll */
         }
         h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
@@ -88,8 +84,11 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .section-spacing { padding: 6rem 1.5rem; }
-        
+        .section-spacing {
+            padding: 6rem 1.5rem;
+            background-color: rgba(17, 24, 39, 0.5);
+        }
+
         #music-player {
             position: fixed;
             bottom: 20px;
@@ -112,18 +111,18 @@
         #music-player .fa-spin { animation-duration: 3s; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300">
+<body class="text-gray-300">
 
     <section id="cover" class="cover-section text-center text-white p-6">
         <div class="relative z-10">
             <h1 class="text-xl tracking-widest mb-4">THE WEDDING OF</h1>
             <h2 class="font-bold text-6xl md:text-8xl mb-8" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h2>
-            
+
             <p class="text-lg mb-2">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
             <p id="guest-name" class="text-2xl font-semibold mb-8 border-b-2 border-gold-300 inline-block px-4 pb-2">Tamu Undangan</p>
-            
+
             <p class="text-sm italic text-gray-300 mb-8 max-w-sm mx-auto">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
-            
+
             <button id="open-invitation" class="btn-primary text-lg">
                 <i class="fas fa-envelope-open mr-2"></i> Buka Undangan
             </button>
@@ -138,10 +137,10 @@
     </div>
 
     <main id="main-content">
-    
+
         <img src="foto_pembuka.jpg" alt="Irwan & Ai Resa" class="w-full h-auto object-cover shadow-lg">
 
-        <section class="text-center p-6 bg-gray-900 -mt-2">
+        <section class="text-center p-6 -mt-2" style="background-color: rgba(17, 24, 39, 0.5);">
             <div class="pt-12">
                 <p class="text-2xl mb-4 gold-text fade-in" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
                 <h1 class="text-6xl md:text-8xl font-bold mb-4 text-white fade-in" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
@@ -149,7 +148,7 @@
             </div>
         </section>
 
-        <section class="section-spacing text-center bg-gray-800">
+        <section class="section-spacing text-center">
             <div class="container mx-auto max-w-4xl">
                 <img src="bismillah.png" alt="Bismillah" class="mx-auto mb-8 w-48 fade-in"/>
                 <p class="mb-8 text-gray-300 leading-relaxed max-w-3xl mx-auto italic text-lg fade-in">
@@ -158,10 +157,10 @@
                 <p class="font-semibold text-xl gold-text fade-in" style="font-family: 'Playfair Display', serif;">(Q.S Ar-Rum: 21)</p>
             </div>
         </section>
-        
+
         <section class="section-spacing bg-gray-900">
             <div class="container mx-auto max-w-5xl text-center">
-                 <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs fade-in" />
+                 <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-8 max-w-xs fade-in" />
                  <div class="flex justify-center gap-8 mb-12">
                     <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg fade-in" />
                     <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg fade-in" style="transition-delay: 200ms;" />
@@ -175,9 +174,9 @@
                             <i class="fab fa-instagram mr-2"></i>Instagram
                         </a>
                     </div>
-                    
+
                     <div class="text-5xl font-serif gold-text fade-in">&</div>
-                    
+
                     <div class="text-center w-full md:w-5/12 fade-in">
                         <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Ai Resa Aulia</h3>
                         <p class="mt-4 text-gray-400">Putri pertama dari Pasangan</p>
@@ -194,7 +193,7 @@
             <div class="container mx-auto max-w-4xl">
                 <h2 class="text-5xl font-bold mb-4 gold-text fade-in" style="font-family: 'Playfair Display', serif;">Save The Date</h2>
                 <p class="text-xl text-gray-300 mb-10 fade-in">Sabtu, 14 Juni 2025</p>
-                
+
                 <div id="countdown" class="flex justify-center space-x-4 md:space-x-8 text-center mb-12 fade-in">
                     <div class="bg-gray-700/50 p-4 rounded-lg shadow-lg w-24"><div id="days" class="countdown-number">0</div><div class="countdown-label">Hari</div></div>
                     <div class="bg-gray-700/50 p-4 rounded-lg shadow-lg w-24"><div id="hours" class="countdown-number">0</div><div class="countdown-label">Jam</div></div>
@@ -206,7 +205,7 @@
                 </a>
             </div>
         </section>
-        
+
         <section class="section-spacing bg-gray-900">
             <div class="container mx-auto max-w-5xl">
                 <div class="grid md:grid-cols-2 gap-12">
@@ -237,7 +236,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="denah-lokasi" class="section-spacing text-center bg-gray-800">
             <div class="container mx-auto max-w-4xl fade-in">
                  <h2 class="text-5xl font-bold mb-10 gold-text">Denah Lokasi</h2>
@@ -248,23 +247,23 @@
 
         <section class="section-spacing bg-gray-900 text-center">
             <div class="container mx-auto max-w-6xl fade-in">
-                <img src="gunungan.png" alt="Gallery" class="mx-auto mb-12 max-w-xs" />
+                <img src="gunungan.png" alt="Gallery" class="mx-auto mb-8 max-w-xs" />
                 <h2 class="text-5xl font-bold mb-10 gold-text" style="font-family: 'Playfair Display', serif;">Momen Bahagia</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     <div class="fade-in">
-                        <img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
+                        <img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-48 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
                     </div>
                     <div class="fade-in" style="transition-delay: 100ms;">
-                        <img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
+                        <img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-48 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
                     </div>
                     <div class="fade-in" style="transition-delay: 200ms;">
-                        <img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
+                        <img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-48 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
                     </div>
                     <div class="fade-in" style="transition-delay: 300ms;">
-                        <img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
+                        <img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-48 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
                     </div>
                     <div class="fade-in" style="transition-delay: 400ms;">
-                        <img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
+                        <img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-48 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer"/>
                     </div>
                 </div>
             </div>
@@ -277,7 +276,7 @@
                 <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
                     Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih, Anda dapat mengirimkannya secara cashless melalui:
                 </p>
-                
+
                 <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
                     <div class="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SeaBank_logo.svg/1200px-SeaBank_logo.svg.png" alt="SEABANK" class="h-8 mx-auto mb-4 invert">
@@ -285,7 +284,7 @@
                         <p class="mb-4 text-gray-300">a.n. IRWAN MAULANA</p>
                         <button onclick="copyToClipboard('901548886566')" class="btn-primary text-sm"><i class="fas fa-copy mr-2"></i>Salin No. Rekening</button>
                     </div>
-                    
+
                     <div class="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700 w-full md:w-1/2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/1280px-BRI_2020.svg.png" alt="BANK BRI" class="h-8 mx-auto mb-4"/>
                         <p class="font-semibold text-lg text-gray-200">437601082911539</p>
@@ -299,7 +298,7 @@
         <section class="section-spacing bg-gray-900">
             <div class="container mx-auto max-w-3xl text-center">
                  <img src="gunungan.png" alt="Ucapan" class="mx-auto mb-12 max-w-xs fade-in" />
-                
+
                 <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg mb-12 fade-in">
                      <h2 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Playfair Display', serif;">Buku Tamu</h2>
                     <form id="wishesForm" class="space-y-4">
@@ -332,7 +331,7 @@
                 </div>
             </div>
         </section>
-        
+
         <footer class="text-center py-16 px-6 bg-gray-800">
             <div class="fade-in">
                 <p class="mb-4 text-gray-400 max-w-3xl mx-auto">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
@@ -365,7 +364,7 @@
                 mainContent.classList.add('visible');
                 document.body.style.overflow = 'auto';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
+
                 if (music.paused) {
                     music.play().catch(e => console.log("Autoplay was prevented."));
                     isPlaying = true;
@@ -386,8 +385,8 @@
                 }
                 isPlaying = !isPlaying;
             });
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            document.querySelectorAll('a-hyperlink-only-with-hash').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -412,47 +411,4 @@
                     return;
                 }
                 daysEl.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-                hoursEl.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                minutesEl.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                secondsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000);
-            }
-            const countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown();
-
-            window.copyToClipboard = function(text) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('Nomor rekening berhasil disalin: ' + text);
-                }, () => {
-                    alert('Gagal menyalin nomor rekening.');
-                });
-            }
-
-            document.getElementById('wishesForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Terima kasih atas ucapan dan doanya!');
-                e.target.reset();
-            });
-
-            document.getElementById('rsvp').addEventListener('submit', (e) => {
-                e.preventDefault();
-                const rsvpName = e.target.rsvpName.value;
-                alert(`Terima kasih, ${rsvpName}, atas konfirmasi kehadirannya!`);
-                e.target.reset();
-            });
-
-            // Script untuk animasi scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
-</body>
-</html>
+                hoursEl.innerText = Math.floor

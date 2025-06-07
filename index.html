@@ -13,10 +13,13 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            /* DIUBAH KE TEMA ABU-ABU */
-            background-color: #f4f4f5; /* Warna abu-abu terang (zinc-100) */
             color: #374151; /* Warna teks gelap */
             overflow-x: hidden;
+            /* LATAR BELAKANG UTAMA DENGAN GAMBAR TANGAN */
+            background-image: url('latar_belakang.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
@@ -34,7 +37,6 @@
         .btn-primary:hover {
             background-color: #a68e3a;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(191, 161, 74, 0.3);
         }
         .cover-section {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
@@ -64,13 +66,14 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* SETIAP BAGIAN DIBERI LAPISAN ABU-ABU SEMI-TRANSPARAN */
         .section-container { 
             padding: 4rem 1.5rem; 
+            background-color: rgba(244, 244, 245, 0.9); /* Abu-abu terang (zinc-100) 90% opacity */
             margin-top: 2rem;
             margin-bottom: 2rem;
             border-radius: 0.75rem;
-            background-color: #ffffff; /* Latar section menjadi putih */
-            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
         #music-player {
             position: fixed;
@@ -141,10 +144,16 @@
         <section class="section-container fade-in">
             <div class="container mx-auto max-w-5xl text-center">
                  <img src="gunungan.png" alt="Mempelai" class="mx-auto mb-12 max-w-xs" />
-                 
+                 <div class="flex justify-center items-center gap-8 mb-12">
+                    <div>
+                        <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg" />
+                    </div>
+                    <div>
+                        <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg" />
+                    </div>
+                 </div>
                 <div class="flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16">
                     <div class="text-center w-full md:w-5/12">
-                        <img src="irwan_bulat.png" alt="Foto Irwan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
                         <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Irwan Maulana</h3>
                         <p class="mt-4 text-gray-500">Putra pertama dari Pasangan</p>
                         <p class="font-semibold text-lg text-gray-800">Bapak Efendi & Ibu Yati</p>
@@ -154,7 +163,6 @@
                     </div>
                     <div class="text-5xl font-serif gold-text pt-16">&</div>
                     <div class="text-center w-full md:w-5/12">
-                        <img src="ai_resa_bulat.png" alt="Foto Ai Resa" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-yellow-400 shadow-lg mx-auto mb-6" />
                         <h3 class="text-4xl gold-text" style="font-family: 'Playfair Display', serif;">Ai Resa Aulia</h3>
                         <p class="mt-4 text-gray-500">Putri pertama dari Pasangan</p>
                         <p class="font-semibold text-lg text-gray-800">Bapak Sahli & Ibu Kaesih</p>

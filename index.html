@@ -13,11 +13,9 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            color: #374151; /* Warna teks gelap untuk kontras di atas abu-abu */
+            color: #374151;
             overflow-x: hidden;
-            /* LATAR BELAKANG UTAMA DENGAN GAMBAR TANGAN + LAPISAN GELAP */
-            background-color: #e5e7eb; /* Warna dasar abu-abu */
-            background-image: linear-gradient(rgba(31, 41, 55, 0.5), rgba(31, 41, 55, 0.5)), url('latar_belakang.jpg');
+            background-image: linear-gradient(rgba(244, 244, 245, 0.2), rgba(244, 244, 245, 0.2)), url('latar_belakang.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -41,7 +39,10 @@
         }
         .cover-section {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            display: flex; flex-direction: column; 
+            /* DIUBAH AGAR TIDAK DI TENGAH */
+            justify-content: flex-start; 
+            align-items: center;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto_cover.jpg') no-repeat center center/cover;
             z-index: 100;
             transition: opacity 1.5s ease, transform 1s ease;
@@ -69,7 +70,7 @@
         }
         .section-container { 
             padding: 4rem 1.5rem; 
-            background-color: rgba(255, 255, 255, 0.9); /* Latar putih semi-transparan */
+            background-color: rgba(255, 255, 255, 0.9);
             margin-top: 2rem;
             margin-bottom: 2rem;
             border-radius: 0.75rem;
@@ -100,7 +101,7 @@
 <body class="text-gray-700">
 
     <section id="cover" class="cover-section">
-        <div class="relative z-10 text-center p-6">
+        <div class="relative z-10 text-center p-6 pt-24 md:pt-32">
             <h1 class="text-xl tracking-widest mb-4 text-white">THE WEDDING OF</h1>
             <h2 class="font-bold text-6xl md:text-8xl mb-8 text-white" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h2>
             <p class="text-lg mb-2 text-white">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
@@ -123,13 +124,13 @@
 
         <img src="foto_pembuka.jpg" alt="Irwan & Ai Resa" class="w-full h-auto object-cover shadow-lg rounded-lg">
 
-        <section class="text-center py-16">
-    <div class="pt-12 fade-in">
-        <p class="text-2xl mb-4 gold-text" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
-        <h1 class="text-6xl md:text-8xl font-bold mb-4 text-gray-900" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
-        <p class="text-2xl mt-4 text-gray-600">Sabtu, 14 Juni 2025</p>
-    </div>
-</section>
+        <section class="text-center py-12 my-8 bg-gray-900/10 rounded-lg">
+            <div class="fade-in">
+                <p class="text-2xl mb-4 gold-text" style="font-family: 'Playfair Display', serif;">The Wedding Of</p>
+                <h1 class="text-6xl md:text-8xl font-bold mb-4 text-gray-900" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</h1>
+                <p class="text-2xl mt-4 text-gray-600">Sabtu, 14 Juni 2025</p>
+            </div>
+        </section>
 
         <section class="section-container text-center fade-in">
             <div class="container mx-auto max-w-4xl">
@@ -288,8 +289,8 @@
                 <p class="text-5xl font-bold my-4 gold-text" style="font-family: 'Playfair Display', serif;">Irwan & Ai Resa</p>
                 <div class="mt-12 text-xs text-gray-500">
                     <p>Made with <i class="fas fa-heart text-red-500"></i> by</p>
-                     <a href="https://facebook.com/MAXDHHH" target="_blank">
-                        <img src="logo_pembuat.png" alt="Kanahaya Digital" class="mx-auto mt-2 h-20">
+                     <a href="https://shopee.co.id/kanahayadigital" target="_blank">
+                        <img src="logo_pembuat.png" alt="Kanahaya Digital" class="mx-auto mt-2 h-10">
                     </a>
                 </div>
             </div>

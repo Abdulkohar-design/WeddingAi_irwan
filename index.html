@@ -273,7 +273,28 @@
             </div>
         </footer>
     </main>
-    <script>
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
+
+        // Konfigurasi Firebase Anda
+        const firebaseConfig = {
+            apiKey: "AIzaSyAiGhJs-cHzwPDF536sjIY2WxAztV-0Xj0",
+            authDomain: "undangan-c685d.firebaseapp.com",
+            projectId: "undangan-c685d",
+            storageBucket: "undangan-c685d.appspot.com", // Menggunakan appspot.com untuk konsistensi
+            messagingSenderId: "100284040465",
+            appId: "1:100284040465:web:d832210f73499919b4f8b0",
+            measurementId: "G-PPRCEKPFR6"
+        };
+
+        // Inisialisasi Firebase & Firestore
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app); // Inisialisasi Analytics
+        const db = getFirestore(app);
+
         document.addEventListener('DOMContentLoaded', () => {
             const cover = document.getElementById('cover');
             const openButton = document.getElementById('open-invitation');
@@ -283,6 +304,7 @@
             const playPauseIcon = document.getElementById('play-pause-icon');
             let isPlaying = false;
 
+            // Buka Undangan dan Putar Musik
             openButton.addEventListener('click', () => {
                 cover.classList.add('hidden');
                 mainContent.classList.add('visible');
@@ -290,13 +312,14 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 if (music.paused) {
-                    music.play().catch(e => console.log("Autoplay was prevented."));
+                    music.play().catch(e => console.log("Autoplay was prevented:", e));
                     isPlaying = true;
                     playPauseIcon.classList.remove('fa-play');
                     playPauseIcon.classList.add('fa-pause', 'fa-spin');
                 }
             });
 
+            // Kontrol Putar/Jeda Musik
             playPauseBtn.addEventListener('click', () => {
                 if (isPlaying) {
                     music.pause();
@@ -310,6 +333,7 @@
                 isPlaying = !isPlaying;
             });
             
+            // Countdown Timer
             const countdownDate = new Date('June 14, 2025 09:00:00').getTime();
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
@@ -330,47 +354,101 @@
                 secondsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000);
             }, 1000);
 
+            // Fungsi Salin Rekening
             window.copyToClipboard = function(text) {
-                navigator.clipboard.writeText(text).then(() => { alert('Nomor rekening berhasil disalin!'); });
+                navigator.clipboard.writeText(text).then(() => { 
+                    alert('Nomor rekening berhasil disalin!'); 
+                }).catch(err => {
+                    console.error('Gagal menyalin teks: ', err);
+                });
             }
 
-            document.getElementById('wishesForm').addEventListener('submit', (e) => {
+            // Submit form Buku Tamu ke Firestore
+            document.getElementById('wishesForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
-                const name = document.getElementById('name').value;
-                const message = document.getElementById('message').value;
-                const messagesDiv = document.getElementById('messages');
-                
-                // Buat elemen baru untuk ucapan
-                const newMessage = document.createElement('div');
-                newMessage.className = 'bg-white p-4 rounded-lg shadow mb-4 border border-gray-200';
-                newMessage.innerHTML = `<strong class="text-yellow-600">${name}</strong>: ${message}`;
-                messagesDiv.prepend(newMessage);
-                
-                // Reset form
-                e.target.reset();
-                alert('Terima kasih atas ucapan dan doanya!');
+                const name = document.getElementById('name').value.trim();
+                const message = document.getElementById('message').value.trim();
+                if (!name || !message) {
+                    alert('Nama dan ucapan tidak boleh kosong!');
+                    return;
+                }
+
+                try {
+                    await addDoc(collection(db, "ucapan"), {
+                        name: name,
+                        message: message,
+                        timestamp: serverTimestamp()
+                    });
+                    e.target.reset();
+                    alert('Terima kasih atas ucapan dan doanya!');
+                } catch (error) {
+                    console.error("Error writing document: ", error);
+                    alert("Terjadi kesalahan saat mengirim ucapan. Mohon coba lagi.");
+                }
             });
 
+            // Tampilkan ucapan dari Firestore secara real-time
+            function tampilkanUcapan() {
+                const q = query(collection(db, "ucapan"), orderBy("timestamp", "desc"));
+                const messagesDiv = document.getElementById('messages');
+                onSnapshot(q, (snapshot) => {
+                    messagesDiv.innerHTML = ""; // Bersihkan tampilan sebelum menambahkan yang baru
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const el = document.createElement('div');
+                        el.className = "bg-white p-4 rounded-lg shadow mb-4 border border-gray-200";
+                        el.innerHTML = `<strong class="text-yellow-600">${data.name}</strong>: ${data.message}`;
+                        messagesDiv.appendChild(el);
+                    });
+                }, (error) => {
+                    console.error("Error listening to messages: ", error);
+                });
+            }
+            tampilkanUcapan();
+
+            // Animasi Fade-in saat scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                    } else {
+                        // Opsional: jika ingin elemen fade out saat tidak terlihat
+                        // entry.target.classList.remove('visible'); 
                     }
                 });
-            }, { threshold: 0.25 });
+            }, { threshold: 0.25 }); // Elemen akan terlihat jika 25% dari itu terlihat
 
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
+            });
+
+            // Penanganan form RSVP (jika perlu dikirim ke Firebase juga)
+            document.getElementById('rsvp').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const rsvpName = document.getElementById('rsvpName').value.trim();
+                const attendance = document.querySelector('input[name="attendance"]:checked').value;
+                const guestCount = document.getElementById('guestCount').value;
+
+                if (!rsvpName || !attendance || !guestCount) {
+                    alert('Semua kolom konfirmasi kehadiran harus diisi!');
+                    return;
+                }
+
+                try {
+                    await addDoc(collection(db, "rsvp"), {
+                        name: rsvpName,
+                        attendance: attendance,
+                        guestCount: parseInt(guestCount), // Pastikan ini adalah angka
+                        timestamp: serverTimestamp()
+                    });
+                    e.target.reset();
+                    alert('Konfirmasi kehadiran Anda berhasil dikirim!');
+                } catch (error) {
+                    console.error("Error submitting RSVP: ", error);
+                    alert("Terjadi kesalahan saat mengirim konfirmasi kehadiran. Mohon coba lagi.");
+                }
             });
         });
     </script>
 </body>
 </html>
-```
-
----
-
-**Catatan:**  
-Hanya bagian **form ucapan** dan **script submit** yang diubah agar ucapan tamu muncul di bawah form.  
-**Bagian lain tetap sama seperti aslinya.**
-
